@@ -1,5 +1,3 @@
-
-
 $loginouts = Get-EventLog System -Source Microsoft-Windows-Winlogon -After (Get-Date).AddDays(-14)
 
 $loginoutsTable = @() #This is the empty array
