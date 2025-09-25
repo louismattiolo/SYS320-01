@@ -26,3 +26,10 @@ Write-Host "IPs that visited page1.html with a 200 response:"
 $ips = Find-ApacheLogs -Page "page1.html" -HttpCode "200" -Browser ""
 Write-Output $ips
 Write-Host "--------------------"
+
+. ".\ParsingApacheLogs.ps1"
+
+$parsedLogs = Get-ParsedApacheLogs
+
+Write-Host "Displaying logs with IPs that are NOT in the 10.0.* network:"
+$parsedLogs | Format-Table -AutoSize -Wrap
