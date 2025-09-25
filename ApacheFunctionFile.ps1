@@ -11,13 +11,13 @@
         # A keyword to match against the user-agent string (e.g., "Firefox", "Chrome")
         [string]$Browser   
     )
-   # Path to the Apache access log file. Update this path if your XAMPP installation is different.  
+   # Path to the Apache access log file.
     $logPath = "C:\xampp\apache\logs\access.log"
     # Define a regex to match an IPv4 address at the start of the line.
     
     $ipRegex = [regex]"^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"
     
-    # Get all log content and filter based on all three criteria: page, HTTP code, and browser.
+    # Get all log content and filter 
     # The $_ variable represents the current line in the pipeline.
     $filteredLogs = Get-Content $logPath | Where-Object { 
     
